@@ -10,24 +10,55 @@ import XCTest
 
 class AsyncAwaitDemoTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func testFetchThumbnail_Blocks() throws {
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        //Given
+        struct MockNetworkHandler: NetworkProtocol {
+            func fetchThumbnail(for id: String, completion: @escaping (UIImage?, Error?) -> Void) {
+                guard let unwrappedImagePath = Bundle.main.path(forResource: "\(id).jpeg", ofType: nil),
+                      let image = UIImage(contentsOfFile: unwrappedImagePath) else {
+                          completion(nil, FetchError.badImage)
+                          return
+                      }
+                completion(image, nil)
+            }
         }
+
+        let vm = ViewModel(with: MockNetworkHandler())
+        let expectation = XCTestExpectation(description: "mock thumbnail completion")
+
+        //When
+        vm.fetchImage(for: "1") { image, error in
+
+            //Then
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 5.0)
     }
 
+
+    func testFetchThumbnail_AsynAwait() async throws {
+
+        //Given
+        struct MockNetworkHandler: NetworkProtocol {
+            func fetchThumbnail(for id: String) async throws -> UIImage {
+                guard let unwrappedImagePath = Bundle.main.path(forResource: "\(id).jpeg", ofType: nil),
+                      let image = UIImage(contentsOfFile: unwrappedImagePath) else {
+                         throw FetchError.badImage
+                      }
+                return image
+            }
+        }
+
+        let vm = ViewModel(with: MockNetworkHandler())
+
+        //When
+        let result = try await vm.fetchImage(for: "2")
+
+        //Then
+        XCTAssertNoThrow(result)
+
+    }
 }

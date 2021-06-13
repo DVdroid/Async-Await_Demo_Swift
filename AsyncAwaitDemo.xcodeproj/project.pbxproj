@@ -12,18 +12,18 @@
 		D6BF6F65267630C000223C45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6BF6F64267630C000223C45 /* Assets.xcassets */; };
 		D6BF6F68267630C000223C45 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6BF6F67267630C000223C45 /* Preview Assets.xcassets */; };
 		D6BF6F72267630C100223C45 /* AsyncAwaitDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BF6F71267630C100223C45 /* AsyncAwaitDemoTests.swift */; };
-		D6BF6F7C267630C100223C45 /* AsyncAwaitDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BF6F7B267630C100223C45 /* AsyncAwaitDemoUITests.swift */; };
+		D6BF6F89267630E600223C45 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BF6F88267630E600223C45 /* NetworkHandler.swift */; };
+		D6BF6F8B267630F600223C45 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BF6F8A267630F600223C45 /* ViewModel.swift */; };
+		D6BF6F962676584000223C45 /* ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BF6F952676584000223C45 /* ThumbnailView.swift */; };
+		D6BF6F98267658F400223C45 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BF6F97267658F400223C45 /* Post.swift */; };
+		D6BF6FA0267670ED00223C45 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6BF6F9C267670ED00223C45 /* 1.jpeg */; };
+		D6BF6FA42676728100223C45 /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6BF6FA12676728100223C45 /* 3.jpeg */; };
+		D6BF6FA52676728100223C45 /* 4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6BF6FA22676728100223C45 /* 4.jpeg */; };
+		D6BF6FA62676728100223C45 /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6BF6FA32676728100223C45 /* 2.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		D6BF6F6E267630C100223C45 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D6BF6F55267630BF00223C45 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D6BF6F5C267630BF00223C45;
-			remoteInfo = AsyncAwaitDemo;
-		};
-		D6BF6F78267630C100223C45 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D6BF6F55267630BF00223C45 /* Project object */;
 			proxyType = 1;
@@ -40,8 +40,14 @@
 		D6BF6F67267630C000223C45 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D6BF6F6D267630C100223C45 /* AsyncAwaitDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsyncAwaitDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6BF6F71267630C100223C45 /* AsyncAwaitDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitDemoTests.swift; sourceTree = "<group>"; };
-		D6BF6F77267630C100223C45 /* AsyncAwaitDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsyncAwaitDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6BF6F7B267630C100223C45 /* AsyncAwaitDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitDemoUITests.swift; sourceTree = "<group>"; };
+		D6BF6F88267630E600223C45 /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		D6BF6F8A267630F600223C45 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		D6BF6F952676584000223C45 /* ThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailView.swift; sourceTree = "<group>"; };
+		D6BF6F97267658F400223C45 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		D6BF6F9C267670ED00223C45 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
+		D6BF6FA12676728100223C45 /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpeg; sourceTree = "<group>"; };
+		D6BF6FA22676728100223C45 /* 4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpeg; sourceTree = "<group>"; };
+		D6BF6FA32676728100223C45 /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,13 +65,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D6BF6F74267630C100223C45 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -74,7 +73,6 @@
 			children = (
 				D6BF6F5F267630BF00223C45 /* AsyncAwaitDemo */,
 				D6BF6F70267630C100223C45 /* AsyncAwaitDemoTests */,
-				D6BF6F7A267630C100223C45 /* AsyncAwaitDemoUITests */,
 				D6BF6F5E267630BF00223C45 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,7 +82,6 @@
 			children = (
 				D6BF6F5D267630BF00223C45 /* AsyncAwaitDemo.app */,
 				D6BF6F6D267630C100223C45 /* AsyncAwaitDemoTests.xctest */,
-				D6BF6F77267630C100223C45 /* AsyncAwaitDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,8 +91,13 @@
 			children = (
 				D6BF6F60267630BF00223C45 /* AsyncAwaitDemoApp.swift */,
 				D6BF6F62267630BF00223C45 /* ContentView.swift */,
+				D6BF6F952676584000223C45 /* ThumbnailView.swift */,
+				D6BF6F8A267630F600223C45 /* ViewModel.swift */,
+				D6BF6F97267658F400223C45 /* Post.swift */,
+				D6BF6F88267630E600223C45 /* NetworkHandler.swift */,
 				D6BF6F64267630C000223C45 /* Assets.xcassets */,
 				D6BF6F66267630C000223C45 /* Preview Content */,
+				D6BF6F8C2676441D00223C45 /* Resources */,
 			);
 			path = AsyncAwaitDemo;
 			sourceTree = "<group>";
@@ -116,12 +118,15 @@
 			path = AsyncAwaitDemoTests;
 			sourceTree = "<group>";
 		};
-		D6BF6F7A267630C100223C45 /* AsyncAwaitDemoUITests */ = {
+		D6BF6F8C2676441D00223C45 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D6BF6F7B267630C100223C45 /* AsyncAwaitDemoUITests.swift */,
+				D6BF6F9C267670ED00223C45 /* 1.jpeg */,
+				D6BF6FA32676728100223C45 /* 2.jpeg */,
+				D6BF6FA12676728100223C45 /* 3.jpeg */,
+				D6BF6FA22676728100223C45 /* 4.jpeg */,
 			);
-			path = AsyncAwaitDemoUITests;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,24 +167,6 @@
 			productReference = D6BF6F6D267630C100223C45 /* AsyncAwaitDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D6BF6F76267630C100223C45 /* AsyncAwaitDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D6BF6F85267630C100223C45 /* Build configuration list for PBXNativeTarget "AsyncAwaitDemoUITests" */;
-			buildPhases = (
-				D6BF6F73267630C100223C45 /* Sources */,
-				D6BF6F74267630C100223C45 /* Frameworks */,
-				D6BF6F75267630C100223C45 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D6BF6F79267630C100223C45 /* PBXTargetDependency */,
-			);
-			name = AsyncAwaitDemoUITests;
-			productName = AsyncAwaitDemoUITests;
-			productReference = D6BF6F77267630C100223C45 /* AsyncAwaitDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -194,10 +181,6 @@
 						CreatedOnToolsVersion = 13.0;
 					};
 					D6BF6F6C267630C100223C45 = {
-						CreatedOnToolsVersion = 13.0;
-						TestTargetID = D6BF6F5C267630BF00223C45;
-					};
-					D6BF6F76267630C100223C45 = {
 						CreatedOnToolsVersion = 13.0;
 						TestTargetID = D6BF6F5C267630BF00223C45;
 					};
@@ -218,7 +201,6 @@
 			targets = (
 				D6BF6F5C267630BF00223C45 /* AsyncAwaitDemo */,
 				D6BF6F6C267630C100223C45 /* AsyncAwaitDemoTests */,
-				D6BF6F76267630C100223C45 /* AsyncAwaitDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -228,19 +210,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6BF6FA52676728100223C45 /* 4.jpeg in Resources */,
+				D6BF6FA0267670ED00223C45 /* 1.jpeg in Resources */,
+				D6BF6FA62676728100223C45 /* 2.jpeg in Resources */,
+				D6BF6FA42676728100223C45 /* 3.jpeg in Resources */,
 				D6BF6F68267630C000223C45 /* Preview Assets.xcassets in Resources */,
 				D6BF6F65267630C000223C45 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D6BF6F6B267630C100223C45 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D6BF6F75267630C100223C45 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,6 +235,10 @@
 			files = (
 				D6BF6F63267630BF00223C45 /* ContentView.swift in Sources */,
 				D6BF6F61267630BF00223C45 /* AsyncAwaitDemoApp.swift in Sources */,
+				D6BF6F962676584000223C45 /* ThumbnailView.swift in Sources */,
+				D6BF6F98267658F400223C45 /* Post.swift in Sources */,
+				D6BF6F8B267630F600223C45 /* ViewModel.swift in Sources */,
+				D6BF6F89267630E600223C45 /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,14 +250,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D6BF6F73267630C100223C45 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D6BF6F7C267630C100223C45 /* AsyncAwaitDemoUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -282,11 +257,6 @@
 			isa = PBXTargetDependency;
 			target = D6BF6F5C267630BF00223C45 /* AsyncAwaitDemo */;
 			targetProxy = D6BF6F6E267630C100223C45 /* PBXContainerItemProxy */;
-		};
-		D6BF6F79267630C100223C45 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D6BF6F5C267630BF00223C45 /* AsyncAwaitDemo */;
-			targetProxy = D6BF6F78267630C100223C45 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -423,7 +393,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,7 +423,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -476,7 +446,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B6LN4XWA2V;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -501,7 +471,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B6LN4XWA2V;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -514,52 +484,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AsyncAwaitDemo.app/AsyncAwaitDemo";
-			};
-			name = Release;
-		};
-		D6BF6F86267630C100223C45 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B6LN4XWA2V;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.va.AsyncAwaitDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AsyncAwaitDemo;
-			};
-			name = Debug;
-		};
-		D6BF6F87267630C100223C45 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B6LN4XWA2V;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.va.AsyncAwaitDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = AsyncAwaitDemo;
 			};
 			name = Release;
 		};
@@ -589,15 +513,6 @@
 			buildConfigurations = (
 				D6BF6F83267630C100223C45 /* Debug */,
 				D6BF6F84267630C100223C45 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D6BF6F85267630C100223C45 /* Build configuration list for PBXNativeTarget "AsyncAwaitDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D6BF6F86267630C100223C45 /* Debug */,
-				D6BF6F87267630C100223C45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

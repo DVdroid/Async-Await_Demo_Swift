@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  PostView.swift
 //  AsyncAwaitDemo
 //
 //  Created by Vikash Anand on 13/06/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct PostView: View {
 
     let viewModel = ViewModel(with: NetworkHandler())
     var posts: [Post] = [.init(id: "1", title: "Sunrise"),
@@ -31,6 +31,6 @@ struct ContentView_Previews: PreviewProvider {
                              .init(id: "2", title: "Beach"),
                              .init(id: "3", title: "Coffee"),
                              .init(id: "4", title: "Sunset")]
-        ContentView(posts: posts)
+        PostView(posts: posts)
     }
 }

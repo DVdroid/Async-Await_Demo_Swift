@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D65A08A626A858D6004BE7C1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A08A526A858D6004BE7C1 /* LocationManager.swift */; };
+		D65A08A826A8671A004BE7C1 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A08A726A8671A004BE7C1 /* MapView.swift */; };
+		D65A08AA26A8675F004BE7C1 /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65A08A926A8675F004BE7C1 /* PostDetailView.swift */; };
+		D692EC082684917F007F3B72 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D692EC072684917F007F3B72 /* UIImage+Extension.swift */; };
+		D692EC0A268491C1007F3B72 /* BundleFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D692EC09268491C1007F3B72 /* BundleFile.swift */; };
 		D6BF6F61267630BF00223C45 /* AsyncAwaitDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BF6F60267630BF00223C45 /* AsyncAwaitDemoApp.swift */; };
-		D6BF6F63267630BF00223C45 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BF6F62267630BF00223C45 /* ContentView.swift */; };
+		D6BF6F63267630BF00223C45 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BF6F62267630BF00223C45 /* PostView.swift */; };
 		D6BF6F65267630C000223C45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6BF6F64267630C000223C45 /* Assets.xcassets */; };
 		D6BF6F68267630C000223C45 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6BF6F67267630C000223C45 /* Preview Assets.xcassets */; };
 		D6BF6F72267630C100223C45 /* AsyncAwaitDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BF6F71267630C100223C45 /* AsyncAwaitDemoTests.swift */; };
@@ -33,9 +38,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D65A08A526A858D6004BE7C1 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		D65A08A726A8671A004BE7C1 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		D65A08A926A8675F004BE7C1 /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		D65A08AB26A88B01004BE7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D692EC072684917F007F3B72 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		D692EC09268491C1007F3B72 /* BundleFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleFile.swift; sourceTree = "<group>"; };
 		D6BF6F5D267630BF00223C45 /* AsyncAwaitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsyncAwaitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6BF6F60267630BF00223C45 /* AsyncAwaitDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitDemoApp.swift; sourceTree = "<group>"; };
-		D6BF6F62267630BF00223C45 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D6BF6F62267630BF00223C45 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		D6BF6F64267630C000223C45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6BF6F67267630C000223C45 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D6BF6F6D267630C100223C45 /* AsyncAwaitDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsyncAwaitDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,12 +100,18 @@
 		D6BF6F5F267630BF00223C45 /* AsyncAwaitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D65A08AB26A88B01004BE7C1 /* Info.plist */,
 				D6BF6F60267630BF00223C45 /* AsyncAwaitDemoApp.swift */,
-				D6BF6F62267630BF00223C45 /* ContentView.swift */,
+				D6BF6F62267630BF00223C45 /* PostView.swift */,
+				D65A08A926A8675F004BE7C1 /* PostDetailView.swift */,
 				D6BF6F952676584000223C45 /* ThumbnailView.swift */,
 				D6BF6F8A267630F600223C45 /* ViewModel.swift */,
-				D6BF6F97267658F400223C45 /* Post.swift */,
 				D6BF6F88267630E600223C45 /* NetworkHandler.swift */,
+				D65A08A526A858D6004BE7C1 /* LocationManager.swift */,
+				D6BF6F97267658F400223C45 /* Post.swift */,
+				D692EC072684917F007F3B72 /* UIImage+Extension.swift */,
+				D692EC09268491C1007F3B72 /* BundleFile.swift */,
+				D65A08A726A8671A004BE7C1 /* MapView.swift */,
 				D6BF6F64267630C000223C45 /* Assets.xcassets */,
 				D6BF6F66267630C000223C45 /* Preview Content */,
 				D6BF6F8C2676441D00223C45 /* Resources */,
@@ -233,12 +250,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6BF6F63267630BF00223C45 /* ContentView.swift in Sources */,
+				D65A08AA26A8675F004BE7C1 /* PostDetailView.swift in Sources */,
+				D6BF6F63267630BF00223C45 /* PostView.swift in Sources */,
+				D692EC082684917F007F3B72 /* UIImage+Extension.swift in Sources */,
 				D6BF6F61267630BF00223C45 /* AsyncAwaitDemoApp.swift in Sources */,
+				D692EC0A268491C1007F3B72 /* BundleFile.swift in Sources */,
 				D6BF6F962676584000223C45 /* ThumbnailView.swift in Sources */,
 				D6BF6F98267658F400223C45 /* Post.swift in Sources */,
 				D6BF6F8B267630F600223C45 /* ViewModel.swift in Sources */,
+				D65A08A826A8671A004BE7C1 /* MapView.swift in Sources */,
 				D6BF6F89267630E600223C45 /* NetworkHandler.swift in Sources */,
+				D65A08A626A858D6004BE7C1 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +410,7 @@
 				DEVELOPMENT_TEAM = B6LN4XWA2V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AsyncAwaitDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -418,6 +441,7 @@
 				DEVELOPMENT_TEAM = B6LN4XWA2V;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AsyncAwaitDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

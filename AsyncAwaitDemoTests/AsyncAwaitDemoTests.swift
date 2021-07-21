@@ -39,7 +39,7 @@ class AsyncAwaitDemoTests: XCTestCase {
     }
 
 
-    func testFetchThumbnail_AsynAwait() async throws {
+    func testFetchThumbnail_AsyncAwait() async throws {
 
         //Given
         struct MockNetworkHandler: NetworkProtocol {

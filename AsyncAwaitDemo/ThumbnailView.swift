@@ -11,36 +11,35 @@ struct ThumbnailView: View {
     @ObservedObject var viewModel: ViewModel
     var post: Post
     @State private var image: UIImage?
-    private var isAsyncAwaitFlow: Bool { true }
     private var placeholder: UIImage { UIImage(named: "placeholder")! }
 
     var body: some View {
         HStack {
             Image(uiImage: self.image ?? placeholder)
                 .resizable()
-                .frame(width: 50, height: 50)
-                .cornerRadius(10.0)
-                .onAppear(perform: loadImages)
+                .frame(width: 80, height: 80)
+                .cornerRadius(80 / 2)
+                .onAppear(perform: {
+                    ///Task - Used to call an async function in a synchronous function context
+                    Task {
+                        self.image = try? await self.viewModel.fetchImage(for: post.id)
+                    }
+                })
             Text(post.title)
+            NavigationLink("\(post.id)", destination: PostDetailView(post: post))
             Spacer()
         }
     }
 
     private func loadImages() {
-        if isAsyncAwaitFlow {
-            print(Thread.isMainThread)
-            async {
-                print(Thread.isMainThread)
-                self.image = try? await self.viewModel.fetchImage(for: post.id)
-                print(Thread.isMainThread)
-            }
-        } else {
-            self.viewModel.fetchImage(for: post.id) { result, _ in
-                self.image = result
-            }
+        ///Async - Await approach
+        ///Task - Used to call an async function in a synchronous function context
+        Task {
+            self.image = try? await self.viewModel.fetchImage(for: post.id)
         }
     }
 }
+
 
 struct ThumbnailView_Previews: PreviewProvider {
     static var previews: some View {

@@ -11,25 +11,107 @@ final class ViewModel: ObservableObject {
     let networkHandler: NetworkProtocol
     init(with networkHandler: NetworkProtocol) {
         self.networkHandler = networkHandler
+        let someStructure = SomeStruct()
+        someStructure.start()
     }
 
+    // Synchronous method call to fetch an image and return a thumbnail of that image
+//    func fetchImage(for filename: String) throws -> UIImage {
+//        let image = UIImage(contentsOfFile: filename)
+//        guard let unwrappedThumbnailImage = image?.preparingThumbnail(of: CGSize(width: 40, height: 40)) else {
+//            throw FetchError.badImage
+//        }
+//        return unwrappedThumbnailImage
+//    }
+
+    //Block based approach
+    //Level - 1
     func fetchImage(for id: String,
                     _ completion: @escaping (UIImage?, Error?) -> Void) {
-        networkHandler.fetchThumbnail(for: id, completion: completion)
+
+        //Level - 2
+        networkHandler.fetchThumbnail(for: id) { image, error in
+            guard let unwrappedImage = image else {
+                //completion(nil, FetchError.badImage)
+                return
+            }
+
+            //Level - 3 - Call to one of the block based method provided by UIKit framework
+            unwrappedImage.prepareThumbnail(of: CGSize(width: 40, height: 40)) { thumbnail in
+                guard let unwrappedThumbnail = thumbnail else {
+                    //completion(nil, FetchError.badImage)
+                    return
+                }
+                completion(unwrappedThumbnail, nil)
+            }
+        }
     }
 
+    //Block based approach
+    //Level - 1
+//    func fetchImage(for id: String,
+//                    _ completion: @escaping (Result<UIImage, Error>) -> Void) {
+//
+//        //Level - 2
+//        networkHandler.fetchThumbnail(for: id) { image, error in
+//            guard let unwrappedImage = image else {
+//                //completion(.failure(FetchError.badImage))
+//                return
+//            }
+//
+//            //Level - 3 - Call to one of the UIKit api
+//            unwrappedImage.prepareThumbnail(of: CGSize(width: 40, height: 40)) { thumbnail in
+//                guard let unwrappedThumbnail = thumbnail else {
+//                    //completion(.failure(FetchError.badImage))
+//                    return
+//                }
+//                completion(.success(unwrappedThumbnail))
+//            }
+//        }
+//    }
+
+    private func prepareThumbnail(from image: UIImage, ofSize: CGSize) async throws -> UIImage {
+        do {
+            return try await withCheckedThrowingContinuation { continuation in
+
+                //System API which can't be changed to async-await syntax, hence it is
+                //unwrapped inside 'withCheckedThrowingContinuation'
+                //image.preparingThumbnail(of: ofSize)
+                image.prepareThumbnail(of: ofSize) { thumbnail in
+                    if let unwrappedThumbnail = thumbnail {
+                        continuation.resume(returning: unwrappedThumbnail)
+                    } else {
+                        continuation.resume(throwing: FetchError.badImage)
+                    }
+                }
+            }
+        } catch {
+            throw error
+        }
+    }
+
+    //Async - Await approach
+    //Level - 1
     func fetchImage(for id: String) async throws -> UIImage {
+        //Level - 2
         let image = try await networkHandler.fetchThumbnail(for: id)
-        return image
+        //Level - 3
+        let thumbnailSize: CGSize = .init(width: 40, height: 40)
+        let thumbnail = try await prepareThumbnail(from: image, ofSize: thumbnailSize)
+        return thumbnail
     }
 }
 
-extension UIImage {
-
-    var thumbnail: UIImage? {
-        get async {
-            let size = CGSize(width: 40, height: 40)
-            return await self.byPreparingThumbnail(ofSize: size)
+extension ViewModel {
+    @available(*, deprecated, message: "Prefer async alternative instead")
+    func someMethod(with completionHandler: @escaping(Bool)-> Void) {
+        Task {
+            let result = await someMethod()
+            completionHandler(result)
         }
+    }
+
+    func someMethod() async -> Bool {
+        return true
     }
 }

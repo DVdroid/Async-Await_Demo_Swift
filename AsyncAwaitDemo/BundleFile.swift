@@ -72,9 +72,13 @@ struct SomeStruct {
         // Since synchronous methods are not allowed to suspend so calling a async function within
         // an synchronous will result in an compile time error
         // Task{} - Used for calling async method inside a synchronous method context
-        Task {
-            let result = await method_1()
-            print(result)
+        if #available(iOS 15.0, *) {
+            Task {
+                let result = await method_1()
+                print(result)
+            }
+        } else {
+            // Fallback on earlier versions
         }
     }
 

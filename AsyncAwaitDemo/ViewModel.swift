@@ -37,7 +37,7 @@ final class ViewModel: ObservableObject {
             }
 
             //Level - 3 - Call to one of the block based method provided by UIKit framework
-            unwrappedImage.prepareThumbnail(of: CGSize(width: 40, height: 40)) { thumbnail in
+            unwrappedImage.prepareThumbnailPreservingAspectRatio(of: CGSize(width: 40, height: 40)) { thumbnail in
                 guard let unwrappedThumbnail = thumbnail else {
                     //completion(nil, FetchError.badImage)
                     return
@@ -47,29 +47,19 @@ final class ViewModel: ObservableObject {
         }
     }
 
-    //Block based approach
+    //Async - Await approach
     //Level - 1
-//    func fetchImage(for id: String,
-//                    _ completion: @escaping (Result<UIImage, Error>) -> Void) {
-//
-//        //Level - 2
-//        networkHandler.fetchThumbnail(for: id) { image, error in
-//            guard let unwrappedImage = image else {
-//                //completion(.failure(FetchError.badImage))
-//                return
-//            }
-//
-//            //Level - 3 - Call to one of the UIKit api
-//            unwrappedImage.prepareThumbnail(of: CGSize(width: 40, height: 40)) { thumbnail in
-//                guard let unwrappedThumbnail = thumbnail else {
-//                    //completion(.failure(FetchError.badImage))
-//                    return
-//                }
-//                completion(.success(unwrappedThumbnail))
-//            }
-//        }
-//    }
+    @available(iOS 15.0, *)
+    func fetchImage(for id: String) async throws -> UIImage {
+        //Level - 2
+        let image = try await networkHandler.fetchThumbnail(for: id)
+        //Level - 3
+        let thumbnailSize: CGSize = .init(width: 40, height: 40)
+        let thumbnail = try await prepareThumbnail(from: image, ofSize: thumbnailSize)
+        return thumbnail
+    }
 
+    @available(iOS 15.0, *)
     private func prepareThumbnail(from image: UIImage, ofSize: CGSize) async throws -> UIImage {
         do {
             return try await withCheckedThrowingContinuation { continuation in
@@ -89,25 +79,18 @@ final class ViewModel: ObservableObject {
             throw error
         }
     }
-
-    //Async - Await approach
-    //Level - 1
-    func fetchImage(for id: String) async throws -> UIImage {
-        //Level - 2
-        let image = try await networkHandler.fetchThumbnail(for: id)
-        //Level - 3
-        let thumbnailSize: CGSize = .init(width: 40, height: 40)
-        let thumbnail = try await prepareThumbnail(from: image, ofSize: thumbnailSize)
-        return thumbnail
-    }
 }
 
 extension ViewModel {
     @available(*, deprecated, message: "Prefer async alternative instead")
     func someMethod(with completionHandler: @escaping(Bool)-> Void) {
-        Task {
-            let result = await someMethod()
-            completionHandler(result)
+        if #available(iOS 15.0, *) {
+            Task {
+                let result = await someMethod()
+                completionHandler(result)
+            }
+        } else {
+            // Fallback on earlier versions
         }
     }
 

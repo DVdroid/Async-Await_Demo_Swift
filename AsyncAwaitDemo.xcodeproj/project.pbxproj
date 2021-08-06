@@ -25,6 +25,8 @@
 		D6BF6FA42676728100223C45 /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6BF6FA12676728100223C45 /* 3.jpeg */; };
 		D6BF6FA52676728100223C45 /* 4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6BF6FA22676728100223C45 /* 4.jpeg */; };
 		D6BF6FA62676728100223C45 /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D6BF6FA32676728100223C45 /* 2.jpeg */; };
+		D6E5D42426BDC96E00450B4F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5D42326BDC96E00450B4F /* NetworkManager.swift */; };
+		D6E5D42626BDCE5600450B4F /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E5D42526BDCE5600450B4F /* UIImage+Resize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		D6BF6FA12676728100223C45 /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpeg; sourceTree = "<group>"; };
 		D6BF6FA22676728100223C45 /* 4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpeg; sourceTree = "<group>"; };
 		D6BF6FA32676728100223C45 /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
+		D6E5D42326BDC96E00450B4F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D6E5D42526BDCE5600450B4F /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +110,14 @@
 				D65A08A926A8675F004BE7C1 /* PostDetailView.swift */,
 				D6BF6F952676584000223C45 /* ThumbnailView.swift */,
 				D6BF6F8A267630F600223C45 /* ViewModel.swift */,
+				D6E5D42326BDC96E00450B4F /* NetworkManager.swift */,
 				D6BF6F88267630E600223C45 /* NetworkHandler.swift */,
 				D65A08A526A858D6004BE7C1 /* LocationManager.swift */,
 				D6BF6F97267658F400223C45 /* Post.swift */,
 				D692EC072684917F007F3B72 /* UIImage+Extension.swift */,
 				D692EC09268491C1007F3B72 /* BundleFile.swift */,
 				D65A08A726A8671A004BE7C1 /* MapView.swift */,
+				D6E5D42526BDCE5600450B4F /* UIImage+Resize.swift */,
 				D6BF6F64267630C000223C45 /* Assets.xcassets */,
 				D6BF6F66267630C000223C45 /* Preview Content */,
 				D6BF6F8C2676441D00223C45 /* Resources */,
@@ -250,10 +256,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6E5D42426BDC96E00450B4F /* NetworkManager.swift in Sources */,
 				D65A08AA26A8675F004BE7C1 /* PostDetailView.swift in Sources */,
 				D6BF6F63267630BF00223C45 /* PostView.swift in Sources */,
 				D692EC082684917F007F3B72 /* UIImage+Extension.swift in Sources */,
 				D6BF6F61267630BF00223C45 /* AsyncAwaitDemoApp.swift in Sources */,
+				D6E5D42626BDCE5600450B4F /* UIImage+Resize.swift in Sources */,
 				D692EC0A268491C1007F3B72 /* BundleFile.swift in Sources */,
 				D6BF6F962676584000223C45 /* ThumbnailView.swift in Sources */,
 				D6BF6F98267658F400223C45 /* Post.swift in Sources */,
@@ -334,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -389,7 +397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -416,7 +424,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -447,7 +455,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

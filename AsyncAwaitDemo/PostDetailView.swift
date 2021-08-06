@@ -19,12 +19,17 @@ struct PostDetailView: View {
                 .edgesIgnoringSafeArea(.all)
         }
         .onAppear(perform: {
-            Task { getCurrentLocation }
+            if #available(iOS 15.0, *) {
+                Task { await getCurrentLocationAsync() }
+            } else {
+                getCurrentLocation()
+            }
         })
         .navigationTitle(post.title)
         .navigationBarTitleDisplayMode(.inline)
     }
 
+    @available(iOS 15.0, *)
     func getCurrentLocationAsync() async {
         do {
             let locationCoordinate = try await locationManager.requestLocation()

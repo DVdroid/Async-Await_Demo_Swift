@@ -21,8 +21,15 @@ struct ThumbnailView: View {
                 .cornerRadius(80 / 2)
                 .onAppear(perform: {
                     ///Task - Used to call an async function in a synchronous function context
-                    Task {
-                        self.image = try? await self.viewModel.fetchImage(for: post.id)
+                    if #available(iOS 15.0, *) {
+                        Task {
+                            self.image = try? await self.viewModel.fetchImage(for: post.id)
+                        }
+                    } else {
+                        self.viewModel.fetchImage(for: post.id) { image, error in
+                            guard let unwrappedImage = image else { return }
+                            self.image = unwrappedImage
+                        }
                     }
                 })
             Text(post.title)
@@ -34,8 +41,12 @@ struct ThumbnailView: View {
     private func loadImages() {
         ///Async - Await approach
         ///Task - Used to call an async function in a synchronous function context
-        Task {
-            self.image = try? await self.viewModel.fetchImage(for: post.id)
+        if #available(iOS 15.0, *) {
+            Task {
+                self.image = try? await self.viewModel.fetchImage(for: post.id)
+            }
+        } else {
+            // Fallback on earlier versions
         }
     }
 }

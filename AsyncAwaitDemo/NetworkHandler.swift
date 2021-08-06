@@ -15,6 +15,7 @@ enum FetchError: Error {
 
 protocol NetworkProtocol {
     func fetchThumbnail(for id: String, completion: @escaping (UIImage?, Error?) -> Void)
+    @available(iOS 15.0, *)
     func fetchThumbnail(for id: String) async throws -> UIImage
 }
 
@@ -39,11 +40,11 @@ struct NetworkHandler: NetworkProtocol {
                 completion(nil, error)
             } else {
 
-                guard let httpResponse = response as? HTTPURLResponse,
-                      httpResponse.statusCode == 200 else {
-                          completion(nil, FetchError.invalidServerResponse)
-                          return
-                      }
+//                guard let httpResponse = response as? HTTPURLResponse,
+//                      httpResponse.statusCode == 200 else {
+//                          //completion(nil, FetchError.invalidServerResponse)
+//                          return
+//                      }
 
                 guard let unwrappedData = data else {
                     completion(nil, FetchError.badData)
@@ -58,9 +59,15 @@ struct NetworkHandler: NetworkProtocol {
     }
 
     //Async - Await approach
+    @available(iOS 15.0, *)
     func fetchThumbnail(for id: String) async throws -> UIImage {
         let request = thumbnailURLRequest(for: id)
         let (data, _) = try await URLSession.shared.data(for: request)
+
+//        guard let httpResponse = response as? HTTPURLResponse,
+//              httpResponse.statusCode == 200 else {
+//                 throw FetchError.invalidServerResponse
+//              }
 
         guard let unwrappedThumbnail = UIImage(data: data) else {
             throw FetchError.badImage
@@ -81,9 +88,9 @@ extension NetworkHandler {
 ///complex, error prone and time consuming process
 ///'continuation' can be used to mix and match async function with existing asynchronous function with completion handlers
 final class TIAANetworking {}
-final class RestAdapter {}
+final class NetworkAdapter {}
 
-extension RestAdapter {
+extension NetworkAdapter {
     class func sessionTaskWith(with request: URLRequest,
                    completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         let task = URLSession.shared.dataTask(with: request, completionHandler: completionHandler)
@@ -102,13 +109,13 @@ extension TIAANetworking {
 
     class func execute<T: Decodable>(request: URLRequest,
                                      offlineFileURL: URL?,
-                                     completion: @escaping (_ data: T?, _ error: Error?) -> Void){
+                                     completion: @escaping (_ data: T?, _ error: Error?) -> Void) {
 
-        // NetworkUtilities.execute(... ,completion: ...)
+        // NetworkAdapter.execute(... ,completion: ...)
 
-        // NetworkUtilities.baseExecute(... ,completion: ...)
+        // NetworkAdapter.baseExecute(... ,completion: ...)
 
-        RestAdapter.sessionTaskWith(with: request) { data, response, error in
+        NetworkAdapter.sessionTaskWith(with: request) { data, response, error in
 
             if let error = error {
                 completion(nil, error)
@@ -118,11 +125,11 @@ extension TIAANetworking {
                     completion(nil, FetchError.badData)
                     return
                 }
-
+                
                 let decoder = JSONDecoder()
                 do {
-                    let modalObject = try decoder.decode(T.self, from: unwrappedData)
-                    completion(modalObject, nil)
+                    let modelObject = try decoder.decode(T.self, from: unwrappedData)
+                    completion(modelObject, nil)
                 } catch {
                     completion(nil, error)
                 }
@@ -130,12 +137,12 @@ extension TIAANetworking {
         }
     }
 
+    //Step - 3
     @available(iOS 15.0, *)
     class func execute<T: Decodable>(request: URLRequest,
                                      offlineFileURL: URL?) async throws -> T {
 
         return try await withCheckedThrowingContinuation { continuation in
-
             execute(request: request, offlineFileURL: offlineFileURL) { (data: T?, error: Error?) in
 
                 if let error = error {

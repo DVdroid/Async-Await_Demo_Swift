@@ -24,6 +24,7 @@ extension NetworkProtocol {
         completion(nil, nil)
     }
 
+    @available(iOS 15.0, *)
     func fetchThumbnail(for id: String) async throws -> UIImage {
         throw FetchError.badImage
     }

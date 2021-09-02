@@ -14,12 +14,14 @@ enum FileError: Error {
 struct BundleFile {
     let fileName: String
 
+    @available(iOS 15.0, *)
     init(fileName: String) async {
         self.fileName = fileName
     }
 
     //Only read-only properties can be async
     //Property getters can also throw
+    @available(iOS 15.0, *)
     var contents: URL {
         get async throws {
             guard let url = Bundle.main.url(forResource: fileName, withExtension: "jpeg") else {
@@ -83,6 +85,7 @@ struct SomeStruct {
     }
 
     // Step - 2
+    @available(iOS 15.0, *)
     private func method_1() async -> Bool {
 
         // Step - 3
@@ -91,6 +94,7 @@ struct SomeStruct {
     }
 
     // Step - 4
+    @available(iOS 15.0, *)
     private func method_2() async -> Bool {
         return false
     }

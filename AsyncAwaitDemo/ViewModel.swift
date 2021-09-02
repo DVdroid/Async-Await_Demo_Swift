@@ -94,6 +94,7 @@ extension ViewModel {
         }
     }
 
+    @available(iOS 15.0, *)
     func someMethod() async -> Bool {
         return true
     }
